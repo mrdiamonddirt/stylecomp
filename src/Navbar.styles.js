@@ -13,4 +13,8 @@ export const NavItem = styled.a`
     color: white;
     cursor: pointer;
     padding: 10px 15px;
+    
+    &:hover{
+        background-color: aqua;
+    }
 `;
