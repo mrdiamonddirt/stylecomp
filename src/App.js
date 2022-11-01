@@ -1,27 +1,25 @@
-import {NavBar, NavItem} from "./Navbar.styles"
-import { PrimaryBtn, SecondaryBtn, AlertBtn } from "./components/Buttons";
 import styled from 'styled-components';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 function App() {
   return (
  <>
+ <BrowserRouter>
  <NavBar>
-  <NavItem>Home</NavItem>
-  <NavItem>About</NavItem>
-  <NavItem>Work</NavItem>
-  <NavItem>Home</NavItem>
+  <NavItem to="/">Home</NavItem>
+  <NavItem to="/about">About</NavItem>
+  <NavItem to="/contact">Contact</NavItem>
  </NavBar>
-
- <HeroSection>
-    <h1>Title</h1>
-    <p>some text</p>
- </HeroSection>
-
- <PrimaryBtn>Click Me</PrimaryBtn>
- <PrimaryBtn>Second Primary</PrimaryBtn>
- <SecondaryBtn>Secondary</SecondaryBtn>
- <AlertBtn>Alert</AlertBtn>
- <AlertBtn>Alert2</AlertBtn>
+ <Routes>
+  <Route path="/" element={ <Home />}/>
+  <Route path="/about" element={ <About />}/>
+  <Route path="/contact" element={ <Contact />}/>
+ </Routes>
+ </BrowserRouter>
  </>
   );
 }
@@ -40,4 +38,24 @@ const HeroSection = styled.div`
   h1{
     background-color: beige;
   }
+`;
+
+const NavBar = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    padding: 20px;
+`;
+
+const NavItem = styled(Link)`
+    font-size: 16px;
+    margin: 0 16px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    
+    &:hover{
+        background-color: aqua;
+    }
 `;
