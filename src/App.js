@@ -2,10 +2,18 @@ import styled from 'styled-components';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import { useState } from "react";
 
 import { BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 function App() {
+  const [openModal, setOpenModal] = useState(false)
+
+  const updateModal = () => {
+    setOpenModal(!openModal)
+  }
+  
+
   return (
  <>
  <BrowserRouter>
@@ -15,7 +23,7 @@ function App() {
   <NavItem to="/contact">Contact</NavItem>
  </NavBar>
  <Routes>
-  <Route path="/" element={ <Home />}/>
+  <Route path="/" element={ <Home changeModal={updateModal}/>}/>
   <Route path="/about" element={ <About />}/>
   <Route path="/contact" element={ <Contact />}/>
  </Routes>
@@ -28,17 +36,17 @@ function App() {
 export default App;
 
 
-const HeroSection = styled.div`
-  width: 100vw;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+// const HeroSection = styled.div`
+//   width: 100vw;
+//   height: auto;
+//   display: flex;
+//   flex-direction: column;
+//   background-color: white;
 
-  h1{
-    background-color: beige;
-  }
-`;
+//   h1{
+//     background-color: beige;
+//   }
+// `;
 
 const NavBar = styled.div`
     display: flex;
