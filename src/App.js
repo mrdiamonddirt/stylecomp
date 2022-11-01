@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {NavBar, NavItem} from "./Navbar.styles"
 
 function App() {
   return (
-    <div className="App">
-    </div>
+ <>
+ <NavBar>
+  <NavItem>Home</NavItem>
+  <NavItem>About</NavItem>
+  <NavItem>Work</NavItem>
+  <NavItem>Home</NavItem>
+ </NavBar>
+ </>
   );
 }
+
 
 export default App;
